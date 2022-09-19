@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
+import cftime
 import xarray as xr
 import numpy as np
 import pandas as pd
@@ -72,8 +72,16 @@ def add_doy(ts, tdim="time", keep_tstep=False):
     else:
         doy_original = t.dt.dayofyear
         march_or_later = t.dt.month >= 3
-        not_leap_year = ~t.dt.is_leap_year
-        doy = doy_original + (not_leap_year & march_or_later)
+        # Full time series is read here
+        not_leap_year = xr.apply_ufunc(cftime.is_leap_year,
+                                       t.dt.year,
+                                       input_core_dims=[[]],
+                                       output_core_dims=[[]],
+                                       kwargs={'calendar': "standard",
+                                               "has_year_zero":None},
+                                       dask="allowed",
+                                       vectorize=True)
+        doy = doy_original + (~not_leap_year & march_or_later)
     # rechunk and return new doy as coordinate of the "ts" input variable
     ts.coords["doy"] = doy.chunk({tdim: -1})
     return ts

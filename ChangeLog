@@ -1,0 +1,162 @@
+CHANGES
+=======
+
+* Update README.rst
+* Update setup.cfg
+
+0.8.1
+-----
+
+* added install.rst
+* fixed setup and conda files
+
+0.8.0
+-----
+
+* updated README and meta.yml for new version
+* tidied up docs
+* changed after\_success fourth attempt
+* changed after\_success third attempt
+* changed after\_success second attempt
+* changed after\_success
+* changed codecov command
+* changed from pytest to python -m pytest
+* installing package explicitly
+* added conda run to steps in workflow to make sure conda env is activated
+* incuded timestep branch to test workflow
+* fixed conda env name
+* removed deprecated codeclimate-test-reporter
+* clean up with flake8 and black
+* fixed dependecies
+* fixed yml name and path
+* fixed conda env name
+* changed README
+* Update xmhw-conda.yml
+* removed unique\_dropna using first instead (#40), fixed fixtures for define\_events
+* fixed syntax in workflow
+* Delete enviroment.yml
+* moved env.yml
+* move workflows to .github
+* switched from travis to github actions
+* update tests to skip one requiring netcdf files in travis
+* added netcdf4 to required packages
+* removed old xmhw\_demo and ad dingore docs/conf.py to setup
+* added codecov and codeclimate and remove dev-env from travis
+* removed dev-environment
+* updated setup.cfg
+* updated setup.cfg
+* added documents, merged with conda branch
+* Added tests and updated notebook for tstep option
+* added option to retain original timestep as doy unit
+* Update README.rst
+* Update README.rst
+* Update README.rst
+
+0.7.0
+-----
+
+* fix bug in stats, added tests and updated xmhw\_demo notebook
+* updates to documentation
+* moved boolean threshold calculation in define\_events
+* trying to handle memory better
+* added init
+* fixed typo in seas clim smoothing,tidied up xmhw.py
+* calc\_thresh split into separate delayed functions to speed up calculation, seasonal test needs updating and old code still in files
+* added dropna to window\_roll result, moved dataset creation out of delayed calc\_threshold function
+* removed print statement
+* introudced skina and anynans flags, updated tests, including feb29 values
+* fixed get\_calendar and define-events tests, added how=any option to land\_check
+* added fixtures
+* added conda files
+
+0.6.0
+-----
+
+* added calendar, fixed issue with tdim in detect
+* added bthresh to intermediate results and fix issue with time/tdim
+* fixed bug: land\_check was called in detect without passing tdim
+* starting dealing with calendars, getting attributes from dims instead of coords, added check for time dimension consistency
+* fixed fixtures for rates tests and updated get\_period description
+* fixed bug with rate\_onset and rate\_decline
+* fixed bug in get\_period affecting rates onset decline, started updating tests
+* fixed issues with block\_average in stats
+* tidied up stats moving check for dstime variables and coordinates out of block\_average in two new functions
+* Update README.rst
+* Update README.rst
+* Update README.rst
+* improved the way stats handles coordinates of input data
+* added option to save intermediate results to detect function
+* added sw\_cats and sw\_temp options to block\_average
+* small chnages to demo
+* fixed issues with categories and duration, added first draft of blockAverage, added severity to features
+* removed irrelevant inof from readme and getting started
+* working version with updated docs
+* fixed bug
+* attempt to free up memorywq
+* using loop and delayed for both threshol and detect directly in code
+* using pandas dataframes to detect events
+* first draft of code reorganization to use pandas whereevr possible and map\_blocks from start of detect
+* changed exceed\_bool
+* grouobyevent with pandas df
+* working version with loop on delayed mhw\_features
+* small updates
+* testing set\_index
+* map\_blocks on groupby(cell) is working
+* partial development of map\_blocks attempt
+* updated xmhw\_demo.py
+* fixed bug with real peak index returning nan
+* groupby called only once for cell and once for event, fixed rates issues and added exception + test for dimension with zero length
+* possibly working version with optimised groupby calls
+* added flip\_cold to take care of cold spells plus test
+* added demo in notebook, is slower than script
+* added python demo for threshold and detect in docs
+* added 1 test for onset\_decline
+* added 1 test for onset\_decline
+* added rate of onset and decline + tests for 2 of the functions used + split helpers.py in two separate files
+* added rate of onset and decline + tests for 2 of the functions used + split helpers.py in two separate files
+* added test for categories
+* added test for categories
+* land\_check now works also with 1-dimensional array
+* land\_check now works also with 1-dimensional array
+* removed xr.ufuncs using directly numpy functions
+* removed xr.ufuncs using directly numpy functions
+* time dimension name can be different from time
+* time dimension name can be different from time
+* added runavg test
+* added runavg test
+* added fixs and test for get\_peak
+* added fixs and test for get\_peak
+* clean up join\_gaps
+* clean up join\_gaps
+* added test for join-events, fixed fixtures and tests for join\_gaps and mhw\_filter
+* added test for join-events, fixed fixtures and tests for join\_gaps and mhw\_filter
+* removed assumptions that dimensions are time, lat,lon from most functions, still to fix mhw\_ds and expresison like sel(time=..)
+* removed assumptions that dimensions are time, lat,lon from most functions, still to fix mhw\_ds and expresison like sel(time=..)
+* added feb29 test, modified feb29 so it takes dim as argument
+* added feb29 test, modified feb29 so it takes dim as argument
+* added categories, fixed test for mhw\_filter, added tests for index\_cat, group\_function, cat\_duration
+* added categories, fixed test for mhw\_filter, added tests for index\_cat, group\_function, cat\_duration
+* added more mhw stats to mhw dataset, fixed events array, no tests yet
+* added more mhw stats to mhw dataset, fixed events array, no tests yet
+* added test for mhw\_filter/join\_gaps, still reporting start on end indexes
+* added test for mhw\_filter/join\_gaps, still reporting start on end indexes
+* added test for mhw\_filter, works with join\_gaps False
+* added test for mhw\_filter, works with join\_gaps False
+* added detect function
+* added detect function
+* changed groupby.apply to map, fixed comments, added exception if window widths are not odd
+* changed groupby.apply to map, fixed comments, added exception if window widths are not odd
+* changed get\_doy to add\_doy
+* changed get\_doy to add\_doy
+* Update test\_helpers.py
+* Update test\_helpers.py
+* changed get\_doy to add\_doy, changed description
+* changed get\_doy to add\_doy, changed description
+* Fix error in name of coordinate
+* Updated test\_get\_doy to new function
+* get\_doy: work on variable not a detached coord
+* added code files and tests for geet\_doy and window\_roll
+* add threshold tests but with modification to allow for differences around 29 Feb
+* removed 29 feb values from feb29 average
+* added threshold function
+* initial commit
